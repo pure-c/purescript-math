@@ -2,19 +2,19 @@
 #include <purescript.h>
 
 #define MATH_FFI_VAL(NAME, V)\
-	PURS_FFI_VALUE(Math_ ## NAME, PURS_ANY_NUMBER(V))
+	PURS_FFI_VALUE(Math_ ## NAME, PURS_ANY_NUM(V))
 
 #define MATH_FFI_1_(NAME, FN)\
 	PURS_FFI_FUNC_1(Math_ ## NAME, v, {\
-		return PURS_ANY_NUMBER_NEW(FN(purs_any_get_number(v)));\
+		return purs_any_num_new(FN(purs_any_get_num(v)));\
 	})
 
 #define MATH_FFI_1(FN) MATH_FFI_1_(FN, FN)
 
 #define MATH_FFI_2_(NAME, FN)\
 	PURS_FFI_FUNC_2(Math_ ## NAME, v, w, {\
-		return PURS_ANY_NUMBER_NEW(FN(purs_any_get_number(v),\
-					      purs_any_get_number(w)));\
+		return purs_any_num_new(FN(purs_any_get_num(v),\
+					      purs_any_get_num(w)));\
 	})
 
 #define MATH_FFI_2(FN) MATH_FFI_2_(FN, FN)
@@ -46,9 +46,9 @@ MATH_FFI_VAL(sqrt1_2, 0.7071067811865476);
 MATH_FFI_VAL(sqrt2, 1.4142135623730951);
 
 PURS_FFI_FUNC_2(Math_max, a, b, {
-	return (purs_any_get_number(a) < purs_any_get_number(b)) ? b : a;
-})
+	return (purs_any_get_num(a) < purs_any_get_num(b)) ? b : a;
+});
 
 PURS_FFI_FUNC_2(Math_min, a, b, {
-	return (purs_any_get_number(a) < purs_any_get_number(b)) ? a : b;
-})
+	return (purs_any_get_num(a) < purs_any_get_num(b)) ? a : b;
+});
