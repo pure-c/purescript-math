@@ -44,6 +44,7 @@ MATH_FFI_VAL(log10e, 0.4342944819032518);
 MATH_FFI_VAL(pi, 3.141592653589793);
 MATH_FFI_VAL(sqrt1_2, 0.7071067811865476);
 MATH_FFI_VAL(sqrt2, 1.4142135623730951);
+MATH_FFI_VAL(infinity, INFINITY);
 
 PURS_FFI_FUNC_2(Math_max, a, b, {
 	return (purs_any_get_num(a) < purs_any_get_num(b)) ? b : a;

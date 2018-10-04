@@ -32,5 +32,6 @@ PURS_FFI_EXPORT(Math_pi);
 PURS_FFI_EXPORT(Math_tau);
 PURS_FFI_EXPORT(Math_sqrt1_2);
 PURS_FFI_EXPORT(Math_sqrt2);
+PURS_FFI_EXPORT(Math_infinity);
 
 #endif // Math_H

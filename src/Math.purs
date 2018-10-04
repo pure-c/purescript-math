@@ -5,6 +5,8 @@ module Math where
 -- | An alias to make types in this module more explicit.
 type Radians = Number
 
+foreign import infinity :: Number
+
 -- | Returns the absolute value of the argument.
 foreign import abs :: Number -> Number
 
