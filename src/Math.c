@@ -6,15 +6,15 @@
 
 #define MATH_FFI_1_(NAME, FN)\
 	PURS_FFI_FUNC_1(Math_ ## NAME, v) {\
-		return purs_any_num(FN(purs_any_get_num(v)));\
+		return purs_any_num(FN(purs_any_force_num(v)));\
 	}
 
 #define MATH_FFI_1(FN) MATH_FFI_1_(FN, FN)
 
 #define MATH_FFI_2_(NAME, FN)\
 	PURS_FFI_FUNC_2(Math_ ## NAME, v, w) {\
-		return purs_any_num(FN(purs_any_get_num(v),\
-				       purs_any_get_num(w)));\
+		return purs_any_num(FN(purs_any_force_num(v),\
+				       purs_any_force_num(w)));\
 	}
 
 #define MATH_FFI_2(FN) MATH_FFI_2_(FN, FN)
@@ -47,9 +47,9 @@ MATH_FFI_VAL(sqrt2, 1.4142135623730951);
 MATH_FFI_VAL(infinity, INFINITY);
 
 PURS_FFI_FUNC_2(Math_max, a, b) {
-	return (purs_any_get_num(a) < purs_any_get_num(b)) ? b : a;
+	return (purs_any_force_num(a) < purs_any_force_num(b)) ? b : a;
 }
 
 PURS_FFI_FUNC_2(Math_min, a, b) {
-	return (purs_any_get_num(a) < purs_any_get_num(b)) ? a : b;
+	return (purs_any_force_num(a) < purs_any_force_num(b)) ? a : b;
 }
