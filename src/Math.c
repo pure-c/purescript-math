@@ -5,37 +5,37 @@
 	PURS_FFI_VALUE(Math_ ## NAME, PURS_ANY_NUM(V))
 
 #define MATH_FFI_1_(NAME, FN)\
-	PURS_FFI_FUNC_1(Math_ ## NAME, v, {\
-		return purs_any_num_new(FN(purs_any_get_num(v)));\
-	})
+	PURS_FFI_FUNC_1(Math_ ## NAME, v) {\
+		return purs_any_num(FN(purs_any_get_num(v)));\
+	}
 
 #define MATH_FFI_1(FN) MATH_FFI_1_(FN, FN)
 
 #define MATH_FFI_2_(NAME, FN)\
-	PURS_FFI_FUNC_2(Math_ ## NAME, v, w, {\
-		return purs_any_num_new(FN(purs_any_get_num(v),\
-					      purs_any_get_num(w)));\
-	})
+	PURS_FFI_FUNC_2(Math_ ## NAME, v, w) {\
+		return purs_any_num(FN(purs_any_get_num(v),\
+				       purs_any_get_num(w)));\
+	}
 
 #define MATH_FFI_2(FN) MATH_FFI_2_(FN, FN)
 
-MATH_FFI_1_(abs, fabs);
-MATH_FFI_1(acos);
-MATH_FFI_1(asin);
-MATH_FFI_1(atan);
-MATH_FFI_2(atan2);
-MATH_FFI_1(ceil);
-MATH_FFI_1(cos);
-MATH_FFI_1(exp);
-MATH_FFI_1(floor);
-MATH_FFI_1(log);
-MATH_FFI_2(pow);
-MATH_FFI_1(round);
-MATH_FFI_1(sin);
-MATH_FFI_1(sqrt);
-MATH_FFI_1(tan);
-MATH_FFI_1(trunc);
-MATH_FFI_2_(remainder, fmod);
+MATH_FFI_1_(abs, fabs)
+MATH_FFI_1(acos)
+MATH_FFI_1(asin)
+MATH_FFI_1(atan)
+MATH_FFI_2(atan2)
+MATH_FFI_1(ceil)
+MATH_FFI_1(cos)
+MATH_FFI_1(exp)
+MATH_FFI_1(floor)
+MATH_FFI_1(log)
+MATH_FFI_2(pow)
+MATH_FFI_1(round)
+MATH_FFI_1(sin)
+MATH_FFI_1(sqrt)
+MATH_FFI_1(tan)
+MATH_FFI_1(trunc)
+MATH_FFI_2_(remainder, fmod)
 MATH_FFI_VAL(e, 2.7182818284590451);
 MATH_FFI_VAL(ln2, 0.6931471805599453);
 MATH_FFI_VAL(ln10, 2.302585092994046);
@@ -46,10 +46,10 @@ MATH_FFI_VAL(sqrt1_2, 0.7071067811865476);
 MATH_FFI_VAL(sqrt2, 1.4142135623730951);
 MATH_FFI_VAL(infinity, INFINITY);
 
-PURS_FFI_FUNC_2(Math_max, a, b, {
+PURS_FFI_FUNC_2(Math_max, a, b) {
 	return (purs_any_get_num(a) < purs_any_get_num(b)) ? b : a;
-});
+}
 
-PURS_FFI_FUNC_2(Math_min, a, b, {
+PURS_FFI_FUNC_2(Math_min, a, b) {
 	return (purs_any_get_num(a) < purs_any_get_num(b)) ? a : b;
-});
+}
